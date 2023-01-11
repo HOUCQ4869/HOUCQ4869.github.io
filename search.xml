@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>My first blog</title>
+      <link href="/2023/01/11/test-post/"/>
+      <url>/2023/01/11/test-post/</url>
+      
+        <content type="html"><![CDATA[<p>Hello, everyone.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> test </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> test </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hello World</title>
       <link href="/2023/01/11/hello-world/"/>
       <url>/2023/01/11/hello-world/</url>
