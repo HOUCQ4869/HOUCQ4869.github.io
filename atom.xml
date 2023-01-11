@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hexo</title>
+  <title>HOUCQ</title>
   
-  <subtitle>HOUCQ</subtitle>
+  <subtitle>Welcome to HOUCQ’s Blog</subtitle>
   <link href="http://houcq4869.github.io/atom.xml" rel="self"/>
   
   <link href="http://houcq4869.github.io/"/>
