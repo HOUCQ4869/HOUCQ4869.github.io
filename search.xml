@@ -8,7 +8,7 @@
       <link href="/2023/01/11/test-post/"/>
       <url>/2023/01/11/test-post/</url>
       
-        <content type="html"><![CDATA[<p>Hello, everyone.</p>]]></content>
+        <content type="html"><![CDATA[<p>Hello, everyone.</p><p>注明：本博客搭建借鉴于<a href="https://xkz0777.github.io/2021/07/19/build-website/">xkz</a>以及<a href="https://ysy-phoenix.github.io/2021/04052690.html">ysy</a>，还有最初的<a href="https://godweiyang.com/2018/04/13/hexo-blog/">godweiyang</a>的博客搭建指南，参考注意有先后顺序，避免一些过时的问题。</p><p>测试图片<br><img src="cover.jpg" alt="相对路径图片" style="zoom:33%;" /></p><p>添加方式:<br>在博客根目录下的_config.yml配置文件中，设置  </p><pre class="line-numbers language-none"><code class="language-none">post_asset_folder: true<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>通过命令hexo new post xxx，在source文件夹中生成xxx.md以及同名资源文件夹，之后如下形式引用：  </p><pre class="line-numbers language-none"><code class="language-none">&lt;img src&#x3D;&quot;cover.jpg&quot; alt&#x3D;&quot;相对路径图片&quot; style&#x3D;&quot;zoom:33%;&quot; &#x2F;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>]]></content>
       
       
       <categories>
