@@ -679,7 +679,7 @@
                    type="playlist"
                    id="503838841"
                    fixed='true'
-                   autoplay='false'
+                   autoplay='true'
                    theme='#42b983'
                    loop='all'
                    order='random'
@@ -979,6 +979,18 @@ $(function () {
 
                                                               <!-- 雪花特效 -->
                                                               
+
+
+
+
+                                                                  <script type="text/javascript">
+                                                                    var OriginTitile = document.title, st;
+                                                                    document.addEventListener("visibilitychange", function ()
+                                                                    {
+                                                                      document.hidden ? (document.title = "怎么消失不见了~", clearTimeout(st)) : (document.title = "哎呀，又好了~", st = setTimeout(function () { document.title = OriginTitile }, 3e3))
+                                                                    })
+                                                                  </script>
+
 
 
         </body>
