@@ -484,14 +484,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    267
+                    565
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -523,7 +523,7 @@
 <p>通过命令hexo new post xxx，在source文件夹中生成xxx.md以及同名资源文件夹，之后如下形式引用：  </p>
 <pre class="line-numbers language-none"><code class="language-none">&lt;img src&#x3D;&quot;cover.jpg&quot; alt&#x3D;&quot;相对路径图片&quot; style&#x3D;&quot;zoom:33%;&quot; &#x2F;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="友情链接"><a href="#友情链接" class="headerlink" title="友情链接"></a>友情链接</h2><p>在根目录sourse&#x2F;_data&#x2F;friends.json文件下设置，例如：  </p>
+<h2 id="添加友情链接"><a href="#添加友情链接" class="headerlink" title="添加友情链接"></a>添加友情链接</h2><p>在根目录sourse&#x2F;_data&#x2F;friends.json文件下设置，例如：  </p>
 <pre class="line-numbers language-none"><code class="language-none">[
   &#123;
     &quot;avatar&quot;: &quot;https:&#x2F;&#x2F;ysy-phoenix.github.io&#x2F;medias&#x2F;avatar.jpg&quot;,
@@ -540,6 +540,19 @@
     &quot;title&quot;: &quot;lly的博客&quot;
   &#125;
 ]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="部署至Coding"><a href="#部署至Coding" class="headerlink" title="部署至Coding"></a>部署至Coding</h2><p>该部分参考于<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/466268978">这篇文章</a><br>-&gt;首先到<a target="_blank" rel="noopener" href="https://coding.net/">官网</a>上进行注册<br>-&gt;创建项目(全功能DevOps项目)，项目名可以使github用户名<br>-&gt;创建代码仓库，仓库名用username.github.io，注意是公开仓库<br>-&gt;在仓库中将其地址复制至博客根目录下配置文件：</p>
+<pre class="line-numbers language-none"><code class="language-none"># Deployment
+## Docs: https:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;one-command-deployment
+deploy:
+- type: git
+  repository: 
+    github: https:&#x2F;&#x2F;github.com&#x2F;HOUCQ4869&#x2F;HOUCQ4869.github.io
+    coding: https:&#x2F;&#x2F;e.coding.net&#x2F;houcq4869&#x2F;houcq4869&#x2F;houcq4869.github.io.git
+  branch: main<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>-&gt;导入外部仓库，即将github仓库导入至coding中<br>-&gt;修改分支，将默认分支改为main，注意可能要修改github默认分支为main，而不是master，可在\node_modules\hexo-deployer-git\lib\parse_config.js中查找master并改为main<br>-&gt;hexo clean &amp;&amp; hexo g &amp;&amp; hexo d验证即可</p>
+<p>网上许多方法都已过时，本篇作于2023年初，只具一定参考意义，可能并不会与时俱进，此外Coding Pages似乎也找不到，所以虽然实现了github，coding双线部署，但似乎并没有实现国内Coding，国外Github访问加速的目的，因此未完待续…… </p>
+
                 
             </div>
             <hr/>
@@ -1344,7 +1357,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">340</span>&nbsp;字
+                class="white-color">638</span>&nbsp;字
             
             
             
