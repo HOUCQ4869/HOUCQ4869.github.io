@@ -6,7 +6,7 @@
   <link href="http://houcq4869.github.io/atom.xml" rel="self"/>
   
   <link href="http://houcq4869.github.io/"/>
-  <updated>2023-01-13T10:21:40.794Z</updated>
+  <updated>2023-01-13T12:47:16.593Z</updated>
   <id>http://houcq4869.github.io/</id>
   
   <author>
@@ -18,11 +18,19 @@
   
   <entry>
     <title>线性表</title>
-    <link href="http://houcq4869.github.io/2023/01/13/post-1/"/>
-    <id>http://houcq4869.github.io/2023/01/13/post-1/</id>
-    <published>2023-01-13T10:15:02.930Z</published>
-    <updated>2023-01-13T10:21:40.794Z</updated>
+    <link href="http://houcq4869.github.io/2023/01/13/xian-xing-biao/"/>
+    <id>http://houcq4869.github.io/2023/01/13/xian-xing-biao/</id>
+    <published>2023-01-13T12:15:40.886Z</published>
+    <updated>2023-01-13T12:47:16.593Z</updated>
     
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;strong&gt;注：数据结构相关内容参考于《数据结构（C语言版）》-严蔚敏</summary>
+        
+      
     
     
     
