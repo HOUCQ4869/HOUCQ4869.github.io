@@ -6,7 +6,7 @@
   <link href="http://houcq4869.github.io/atom.xml" rel="self"/>
   
   <link href="http://houcq4869.github.io/"/>
-  <updated>2023-01-14T08:01:04.996Z</updated>
+  <updated>2023-01-16T07:59:28.584Z</updated>
   <id>http://houcq4869.github.io/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>归尘</title>
+    <link href="http://houcq4869.github.io/2023/01/16/gui-chen/"/>
+    <id>http://houcq4869.github.io/2023/01/16/gui-chen/</id>
+    <published>2023-01-16T07:16:40.818Z</published>
+    <updated>2023-01-16T07:59:28.584Z</updated>
+    
+    
+    <summary type="html">Here&#39;s something encrypted, password is required to continue reading.</summary>
+    
+    
+    
+    <category term="lives" scheme="http://houcq4869.github.io/categories/lives/"/>
+    
+    
+    <category term="lives" scheme="http://houcq4869.github.io/tags/lives/"/>
+    
+  </entry>
   
   <entry>
     <title>个人博客搭建指南</title>
