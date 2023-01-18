@@ -6,7 +6,7 @@
   <link href="http://houcq4869.github.io/atom.xml" rel="self"/>
   
   <link href="http://houcq4869.github.io/"/>
-  <updated>2023-01-16T08:23:39.511Z</updated>
+  <updated>2023-01-18T10:38:28.384Z</updated>
   <id>http://houcq4869.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linear_list</title>
+    <link href="http://houcq4869.github.io/2023/01/18/linear-list/"/>
+    <id>http://houcq4869.github.io/2023/01/18/linear-list/</id>
+    <published>2023-01-18T10:35:06.866Z</published>
+    <updated>2023-01-18T10:38:28.384Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Linear-list&quot;&gt;&lt;a href=&quot;#Linear-list&quot; class=&quot;headerlink&quot; title=&quot;Linear_list&quot;&gt;&lt;/a&gt;Linear_list&lt;/h1&gt;&lt;h2 id=&quot;类型定义&quot;&gt;&lt;a href=&quot;#类型定义&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="数据结构" scheme="http://houcq4869.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+    <category term="数据结构" scheme="http://houcq4869.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="C" scheme="http://houcq4869.github.io/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>归尘</title>
