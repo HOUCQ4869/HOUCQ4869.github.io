@@ -519,7 +519,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="Linear-list"><a href="#Linear-list" class="headerlink" title="Linear_list"></a>Linear_list</h1><h2 id="类型定义"><a href="#类型定义" class="headerlink" title="类型定义"></a>类型定义</h2><p>一个线性表是n个数据元素的有限序列，线性表中的元素个数n定义为线性表的长度，n&#x3D;0时成为空表；<br>抽象数据类型：</p>
-<pre class="line-numbers language-none"><code class="language-none">InitList(&amp;L)                &#x2F;&#x2F;构造空线性表L
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">InitList(&amp;L)                &#x2F;&#x2F;构造空线性表L
 DestroyList(&amp;L)             &#x2F;&#x2F;销毁线性表L
 ClearList(&amp;L)               &#x2F;&#x2F;将L重置为空表
 ListEmpty(L)                &#x2F;&#x2F;若L为空表返回TRUE，否则返回FALSE
@@ -533,7 +533,7 @@ ListInsert(&amp;L, i, e)        &#x2F;&#x2F;在L的第i个位置前插入新数�
 ListDelete(&amp;L, i, &amp;e)       &#x2F;&#x2F;删除L的第i个数据元素，并用e返回其值，长度更新
 ListTraverse(L, visit())    &#x2F;&#x2F;依次对L的每个数据元素调用函数visit()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="顺序表示和实现"><a href="#顺序表示和实现" class="headerlink" title="顺序表示和实现"></a>顺序表示和实现</h2><h3 id="顺序表示"><a href="#顺序表示" class="headerlink" title="顺序表示"></a>顺序表示</h3><pre class="line-numbers language-none"><code class="language-none">#define MAXSIZE 20
+<h2 id="顺序表示和实现"><a href="#顺序表示和实现" class="headerlink" title="顺序表示和实现"></a>顺序表示和实现</h2><h3 id="顺序表示"><a href="#顺序表示" class="headerlink" title="顺序表示"></a>顺序表示</h3><pre class="line-numbers language-C" data-language="C"><code class="language-C">#define MAXSIZE 20
 #define OK 1
 #define ERROR 0
 typedef struct&#123;
@@ -541,7 +541,7 @@ typedef struct&#123;
   int length;
 &#125;SqList;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="基本实现"><a href="#基本实现" class="headerlink" title="基本实现"></a>基本实现</h3><h4 id="InitList"><a href="#InitList" class="headerlink" title="InitList"></a>InitList</h4><pre class="line-numbers language-none"><code class="language-none">Status InitList(SqList *L)
+<h3 id="基本实现"><a href="#基本实现" class="headerlink" title="基本实现"></a>基本实现</h3><h4 id="InitList"><a href="#InitList" class="headerlink" title="InitList"></a>InitList</h4><pre class="line-numbers language-C" data-language="C"><code class="language-C">Status InitList(SqList *L)
 &#123; &#x2F;&#x2F;构造空线性表
   L-&gt;elem &#x3D; (ElemType *)malloc(MAXSIZE * sizeof(ElemType));
   if(!L-&gt;elem)
@@ -549,7 +549,7 @@ typedef struct&#123;
   L-&gt;length &#x3D; 0;
   return OK;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="ListInsert"><a href="#ListInsert" class="headerlink" title="ListInsert"></a>ListInsert</h4><pre class="line-numbers language-none"><code class="language-none">Status ListInsert(SqList *L, int i, ElemType e)
+<h4 id="ListInsert"><a href="#ListInsert" class="headerlink" title="ListInsert"></a>ListInsert</h4><pre class="line-numbers language-C" data-language="C"><code class="language-C">Status ListInsert(SqList *L, int i, ElemType e)
 &#123; &#x2F;&#x2F;顺序表插入
   int k;
   if(i &lt; 1 || i &gt; L-&gt;length + 1)
@@ -560,7 +560,7 @@ typedef struct&#123;
   L-&gt;length++;
   return OK;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="ListDelete"><a href="#ListDelete" class="headerlink" title="ListDelete"></a>ListDelete</h4><pre class="line-numbers language-none"><code class="language-none">Status ListDelete(SqList *L, int i, ElemType *e)
+<h4 id="ListDelete"><a href="#ListDelete" class="headerlink" title="ListDelete"></a>ListDelete</h4><pre class="line-numbers language-C" data-language="C"><code class="language-C">Status ListDelete(SqList *L, int i, ElemType *e)
 &#123; &#x2F;&#x2F;顺序表删除
   int k;
   if(i &lt; 1 || i &gt; L-&gt;length)
@@ -575,7 +575,7 @@ typedef struct&#123;
   return OK;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="链式表示和实现"><a href="#链式表示和实现" class="headerlink" title="链式表示和实现"></a>链式表示和实现</h2><h3 id="链式表示"><a href="#链式表示" class="headerlink" title="链式表示"></a>链式表示</h3><pre class="line-numbers language-none"><code class="language-none">#define OK 1
+<h2 id="链式表示和实现"><a href="#链式表示和实现" class="headerlink" title="链式表示和实现"></a>链式表示和实现</h2><h3 id="链式表示"><a href="#链式表示" class="headerlink" title="链式表示"></a>链式表示</h3><pre class="line-numbers language-C" data-language="C"><code class="language-C">#define OK 1
 #define ERROR 0
 
 typedef int Status;
@@ -595,7 +595,7 @@ typedef struct
 &#125;*LinkList;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-<h3 id="基本实现-1"><a href="#基本实现-1" class="headerlink" title="基本实现"></a>基本实现</h3><h4 id="InitList-1"><a href="#InitList-1" class="headerlink" title="InitList"></a>InitList</h4><pre class="line-numbers language-none"><code class="language-none">Status InitList(LinkList *L)
+<h3 id="基本实现-1"><a href="#基本实现-1" class="headerlink" title="基本实现"></a>基本实现</h3><h4 id="InitList-1"><a href="#InitList-1" class="headerlink" title="InitList"></a>InitList</h4><pre class="line-numbers language-C" data-language="C"><code class="language-C">Status InitList(LinkList *L)
 &#123; &#x2F;&#x2F;创建单链表以及新节点
   LinkList p &#x3D; (LinkList)malloc(sizeof(LinkList));
   Node *q &#x3D; (Node *)malloc(sizeof(Node));   &#x2F;&#x2F;创建头结点
@@ -605,7 +605,7 @@ typedef struct
   (*L) &#x3D; p;
   return OK;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="ListInsert-1"><a href="#ListInsert-1" class="headerlink" title="ListInsert"></a>ListInsert</h4><pre class="line-numbers language-none"><code class="language-none">Status ListInsert(LinkList *L, ElemType elem. int pos)
+<h4 id="ListInsert-1"><a href="#ListInsert-1" class="headerlink" title="ListInsert"></a>ListInsert</h4><pre class="line-numbers language-C" data-language="C"><code class="language-C">Status ListInsert(LinkList *L, ElemType elem. int pos)
 &#123; &#x2F;&#x2F;单链表插入
   if(pos &lt; 1 || pos &gt; (*L)-&gt;length + 1)
     return ERROR;     &#x2F;&#x2F;范围
@@ -620,7 +620,7 @@ typedef struct
   (*L)-&gt;length +&#x3D; 1;
   return OK;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="ListDelete-1"><a href="#ListDelete-1" class="headerlink" title="ListDelete"></a>ListDelete</h4><pre class="line-numbers language-none"><code class="language-none">Status ListDelete(LinkList *L, ElemType *elem, int pos)
+<h4 id="ListDelete-1"><a href="#ListDelete-1" class="headerlink" title="ListDelete"></a>ListDelete</h4><pre class="line-numbers language-C" data-language="C"><code class="language-C">Status ListDelete(LinkList *L, ElemType *elem, int pos)
 &#123; &#x2F;&#x2F;单链表删除
   if(pos &lt; 1 || pos &gt; (*L)-&gt;length)
     return ERROR;
@@ -646,7 +646,7 @@ typedef struct
   struct DuLNode *next;
 &#125;DuLNode, *DuLinkList;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="基本实现-2"><a href="#基本实现-2" class="headerlink" title="基本实现"></a>基本实现</h3><h4 id="ListInsert-2"><a href="#ListInsert-2" class="headerlink" title="ListInsert"></a>ListInsert</h4><pre class="line-numbers language-none"><code class="language-none">Status ListInsert(DuLinkList *L, int i, ElemType e)
+<h3 id="基本实现-2"><a href="#基本实现-2" class="headerlink" title="基本实现"></a>基本实现</h3><h4 id="ListInsert-2"><a href="#ListInsert-2" class="headerlink" title="ListInsert"></a>ListInsert</h4><pre class="line-numbers language-C" data-language="C"><code class="language-C">Status ListInsert(DuLinkList *L, int i, ElemType e)
 &#123; &#x2F;&#x2F;插入操作
   DuLNode *p, *s &#x3D; (DuLNode *)malloc(sizeof(DuLNode));
   &#x2F;&#x2F;查找位置
@@ -661,7 +661,7 @@ typedef struct
   p-&gt;prior &#x3D; s;
   return OK;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="ListDelete-2"><a href="#ListDelete-2" class="headerlink" title="ListDelete"></a>ListDelete</h4><pre class="line-numbers language-none"><code class="language-none">Status ListDelete(LinkList *L, int i, ElemType *e)
+<h4 id="ListDelete-2"><a href="#ListDelete-2" class="headerlink" title="ListDelete"></a>ListDelete</h4><pre class="line-numbers language-C" data-language="C"><code class="language-C">Status ListDelete(LinkList *L, int i, ElemType *e)
 &#123; &#x2F;&#x2F;删除操作
   DuLNode *p;
   if(!(p &#x3D; GetElemP_DuL(L, i)))
@@ -674,7 +674,7 @@ typedef struct
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="静态链表"><a href="#静态链表" class="headerlink" title="静态链表"></a>静态链表</h2><p>借用一维数组来描述线性链表，便于在不设“指针”类型的高级程序设计语言中使用链表结构；<br>游标指向下一个节点，在作线性表的插入和删除操作时无需移动元素，仅需修改指针；<br>其中未被使用的数组成为备用链表，插入时从其中取得，删除时回收到备用链表中；同时规定下标为0的cur为备用链表第一个节点的下标，数组最后一个元素的cur为第一个有数值的元素的下标，若链表为空，则为0；</p>
-<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;静态单链表存储结构
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">&#x2F;&#x2F;静态单链表存储结构
 #define MAXSIZE 1000  &#x2F;&#x2F;链表最大长度
 typedef struct
 &#123;
@@ -682,33 +682,33 @@ typedef struct
   int cur;  &#x2F;&#x2F;游标，为0时无指向
 &#125;component, SLinkList[MAXSIZE];<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="基本实现-3"><a href="#基本实现-3" class="headerlink" title="基本实现"></a>基本实现</h3><h4 id="InitSpace-SL"><a href="#InitSpace-SL" class="headerlink" title="InitSpace_SL"></a>InitSpace_SL</h4><pre class="line-numbers language-none"><code class="language-none">void InitSpace_SL(SLinkList *space)
+<h3 id="基本实现-3"><a href="#基本实现-3" class="headerlink" title="基本实现"></a>基本实现</h3><h4 id="InitSpace-SL"><a href="#InitSpace-SL" class="headerlink" title="InitSpace_SL"></a>InitSpace_SL</h4><pre class="line-numbers language-C" data-language="C"><code class="language-C">void InitSpace_SL(SLinkList *space)
 &#123; &#x2F;&#x2F; 将一维数组space中各分量链成一个备用链表，space[0].cur为头指针
   for (int i &#x3D; 0; i &lt; MAXSIZE - 1; i++)
     space[i]-&gt;cur &#x3D; i + 1;
   space[MAXSIZE - 1]-&gt;cur &#x3D; 0;  &#x2F;&#x2F;无指向
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="LocateElem-SL"><a href="#LocateElem-SL" class="headerlink" title="LocateElem_SL"></a>LocateElem_SL</h4><pre class="line-numbers language-none"><code class="language-none">Status LocateElem_SL(SLinkList *S, ElemType e)
+<h4 id="LocateElem-SL"><a href="#LocateElem-SL" class="headerlink" title="LocateElem_SL"></a>LocateElem_SL</h4><pre class="line-numbers language-C" data-language="C"><code class="language-C">Status LocateElem_SL(SLinkList *S, ElemType e)
 &#123; &#x2F;&#x2F; 查找元素，返回位序
   int i &#x3D; S[0]-&gt;cur;
   while (i &amp;&amp; S[i]-&gt;data !&#x3D; e)
     i &#x3D; S[i]-&gt;cur;
   return i;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="Malloc-SL"><a href="#Malloc-SL" class="headerlink" title="Malloc_SL"></a>Malloc_SL</h4><pre class="line-numbers language-none"><code class="language-none">int Malloc_SL(SLinkList space)
+<h4 id="Malloc-SL"><a href="#Malloc-SL" class="headerlink" title="Malloc_SL"></a>Malloc_SL</h4><pre class="line-numbers language-C" data-language="C"><code class="language-C">int Malloc_SL(SLinkList space)
 &#123; &#x2F;&#x2F; 若备用空间链表非空，返回分配的节点下标，否则为0
   int i &#x3D; space[0].cur; &#x2F;&#x2F; 每次从头结点开始
   if (space[0].cur)     &#x2F;&#x2F; 可分配
     space[0].cur &#x3D; space[i].cur;
   return i;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="Free-SL"><a href="#Free-SL" class="headerlink" title="Free_SL"></a>Free_SL</h4><pre class="line-numbers language-none"><code class="language-none">void Free_SL(SLinkList *space, int k)
+<h4 id="Free-SL"><a href="#Free-SL" class="headerlink" title="Free_SL"></a>Free_SL</h4><pre class="line-numbers language-C" data-language="C"><code class="language-C">void Free_SL(SLinkList *space, int k)
 &#123; &#x2F;&#x2F; 将下标为k的空闲节点回收到备用链表
   space[k]-&gt;cur &#x3D; space[0]-&gt;cur;
   space[0]-&gt;cur &#x3D; k;
   &#x2F;&#x2F; 相当于在0与其[0].cur之间插入k
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="ListInsert-3"><a href="#ListInsert-3" class="headerlink" title="ListInsert"></a>ListInsert</h4><pre class="line-numbers language-none"><code class="language-none">Status ListInsert(component *L, int i, ElemType e)
+<h4 id="ListInsert-3"><a href="#ListInsert-3" class="headerlink" title="ListInsert"></a>ListInsert</h4><pre class="line-numbers language-C" data-language="C"><code class="language-C">Status ListInsert(component *L, int i, ElemType e)
 &#123; &#x2F;&#x2F;插入操作
   if(i &lt; 1 || i &gt; ListLength(L) + 1)
     return ERROR;
@@ -726,7 +726,7 @@ typedef struct
   &#125;
   return ERROR;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="ListDelete-3"><a href="#ListDelete-3" class="headerlink" title="ListDelete"></a>ListDelete</h4><pre class="line-numbers language-none"><code class="language-none">Status ListDelete(component *L, int i)
+<h4 id="ListDelete-3"><a href="#ListDelete-3" class="headerlink" title="ListDelete"></a>ListDelete</h4><pre class="line-numbers language-C" data-language="C"><code class="language-C">Status ListDelete(component *L, int i)
 &#123;
   if(i &lt; 1 || i &gt; ListLength(L) + 1)
     return ERROR;
