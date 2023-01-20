@@ -481,14 +481,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-01-19
+                    2023-01-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    1.3k
                 </div>
                 
 
@@ -584,6 +584,21 @@ typedef struct
   return OK;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h4 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h4><pre class="line-numbers language-C" data-language="C"><code class="language-C">int main()
+&#123;
+  SqStack *S &#x3D; (SqStack *)malloc(sizeof(SqStack));
+  InitStack(S);
+  Push(S, 1);
+  printf(&quot;%d %d\n&quot;, *S-&gt;base, *(S-&gt;top - 1));
+  Push(S, 2);
+  printf(&quot;%d %d\n&quot;, *S-&gt;base, *(S-&gt;top - 1));
+  int *e &#x3D; (int *)malloc(sizeof(int));
+  Pop(S, e);
+  printf(&quot;%d %d\n&quot;, *S-&gt;base, *(S-&gt;top - 1));
+  printf(&quot;%d&quot;, *e);
+  return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="链式存储结构"><a href="#链式存储结构" class="headerlink" title="链式存储结构"></a>链式存储结构</h2><h3 id="存储表示-1"><a href="#存储表示-1" class="headerlink" title="存储表示"></a>存储表示</h3><p>链式存储便于多个栈共享存储空间以及提高其效率，且不存在栈满的情况，通常采用单链表实现，并规定所有操作都是在表头进行；这里没有头结点，直接指向栈顶元素，对于空栈即top &#x3D;&#x3D; base &#x3D; NULL；  </p>
 <pre class="line-numbers language-C" data-language="C"><code class="language-C">&#x2F;&#x2F;节点
 typedef struct StackNode
@@ -597,6 +612,7 @@ typedef struct LinkStack
   LinkStackPrt top;
   int count;
 &#125;LinkStack;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="基本实现-1"><a href="#基本实现-1" class="headerlink" title="基本实现"></a>基本实现</h3><h4 id="Push-1"><a href="#Push-1" class="headerlink" title="Push"></a>Push</h4><pre class="line-numbers language-C" data-language="C"><code class="language-C">Status Push(LinkStack *S, ElemType e)
 &#123; &#x2F;&#x2F;插入新栈顶元素e
   &#x2F;&#x2F;创建新节点
@@ -1139,29 +1155,28 @@ typedef struct LinkStack
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/01/19/stack/">
+                <a href="/2023/01/20/queue/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Stack">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Queue">
                         
-                        <span class="card-title">Stack</span>
+                        <span class="card-title">Queue</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            数据结构之二栈
+                            数据结构之三队列
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-19
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-01-20
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1174,7 +1189,6 @@ typedef struct LinkStack
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1466,7 +1480,7 @@ typedef struct LinkStack
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">5.6k</span>&nbsp;字
+                class="white-color">6.9k</span>&nbsp;字
             
             
             
