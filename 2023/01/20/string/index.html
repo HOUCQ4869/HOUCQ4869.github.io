@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, HOUCQ">
+    <meta name="keywords" content="String, HOUCQ">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hello World | HOUCQ</title>
+    <title>String | HOUCQ</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/HOUCQ4869/mycdn/source/libs/awesome/css/all.css">
@@ -324,12 +324,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hello World</h1>
+                    <h1 class="description center-align post-title">String</h1>
                 </div>
             </div>
         </div>
@@ -443,12 +443,29 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                                <span class="chip bg-color">数据结构</span>
+                            </a>
+                        
+                            <a href="/tags/C/">
+                                <span class="chip bg-color">C</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
+                                数据结构
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -457,28 +474,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-01-11
+                    2023-01-20
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-01-14
+                    2023-01-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    73
+                    930
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
@@ -501,20 +518,100 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+                <h1 id="String"><a href="#String" class="headerlink" title="String"></a>String</h1><h2 id="类型定义"><a href="#类型定义" class="headerlink" title="类型定义"></a>类型定义</h2><p>串（字符串）是由零个或多个字符组成的有限序列；</p>
+<ul>
+<li><strong>串的长度</strong>：串中字符数目n称为<strong>串的长度</strong>；</li>
+<li><strong>空串</strong>：零个字符的串称为<strong>空串</strong>，长度为零；</li>
+<li><strong>子串</strong>：串中任意个连续的字符组成的子序列称为该串的<strong>子串</strong>；</li>
+<li><strong>主串</strong>：包含子串的串相应地称为<strong>主串</strong>；</li>
+<li><strong>位置</strong>：字符在序列中的序号为该字符在串中的<strong>位置</strong>；</li>
+</ul>
+<p><strong>抽象数据类型</strong></p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">StrAssign(&amp;T, chars)          &#x2F;&#x2F;生成一个其值为chars的串T
+StrCopy(&amp;T, S)                &#x2F;&#x2F;由串S复制得串T
+StrEmpty(S, T)                &#x2F;&#x2F;若S为空串，则返回TRUE，否则返回FALSE
+StrCompare(S, T)              &#x2F;&#x2F;S &gt; T，返回值大于0；S &#x3D; T，返回值等于0； S &lt; T，返回值小于0 
+StrLength(S)                  &#x2F;&#x2F;返回S的元素个数，称为串的长度
+ClearString(&amp;S)               &#x2F;&#x2F;将S清为空串
+Concat(&amp;T, S1, S2)            &#x2F;&#x2F;T返回S1和S2连接的新串
+SubString(&amp;Sub, S, pos, len)  &#x2F;&#x2F;Sub返回串S的第pos个字符起长度为len的子串
+Index(S, T, pos)              &#x2F;&#x2F;返回主串S中第pos个字符之后第一次出现与串T相同的子串的位置，无则返回0
+Replace(&amp;S, T, V)             &#x2F;&#x2F;用V替换主串S中出现的所有与T相等的不重叠的子串
+StrInsert(&amp;S, pos, T)         &#x2F;&#x2F;在串S的pos个字符之前插入串T
+StrDelete(&amp;S, pos, len)       &#x2F;&#x2F;从串S中删除第pos个字符起长度为len的子串
+DestoryString(&amp;S)             &#x2F;&#x2F;销毁串S<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>上述13中操作中，StrAssign,StrCompare,StrLength,Concat,SubString五种操作构成串类型的最小操作子集；<br>如下根据最小操作子集实现Index操作：  </p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">int Index(String S, String T, int pos)
+&#123;
+  if(pos &gt; 0)
+  &#123;
+    int n &#x3D; StrLength(S);
+    int m &#x3D; StrLength(T);
+    int i &#x3D; pos;
+    String sub;
+    while(i &lt;&#x3D; n - m + 1)
+    &#123; &#x2F;&#x2F;从S的pos位置后依次取T长度个的子串进行比较
+      SubString(sub, S, i, m);
+      if(StrCompare(sub, T) !&#x3D; 0)
+        i++;
+      else 
+        return i;
+    &#125;
+  &#125;
+  return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="串的表示及实现"><a href="#串的表示及实现" class="headerlink" title="串的表示及实现"></a>串的表示及实现</h2><h3 id="定长顺序存储结构"><a href="#定长顺序存储结构" class="headerlink" title="定长顺序存储结构"></a>定长顺序存储结构</h3><p>用一组地址连续的储存单元存储，如下：</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">#define MAXSTRLEN 255
+#define OK 1
+#define ERROR 0
+typedef int Status;
+typedef unsigned char SString[MAXSTRLEN + 1]; &#x2F;&#x2F;0号单元存放串的长度<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="基本实现"><a href="#基本实现" class="headerlink" title="基本实现"></a>基本实现</h3><h4 id="Concat"><a href="#Concat" class="headerlink" title="Concat"></a>Concat</h4><h3 id="堆分配存储结构"><a href="#堆分配存储结构" class="headerlink" title="堆分配存储结构"></a>堆分配存储结构</h3><p>仍采用一组地址连续的储存单元存放，但存储空间采取动态分配，如下：</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">typedef struct
+&#123;
+  char *ch;
+  int length;
+&#125;HString;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="基本实现-1"><a href="#基本实现-1" class="headerlink" title="基本实现"></a>基本实现</h3><h3 id="块链存储结构"><a href="#块链存储结构" class="headerlink" title="块链存储结构"></a>块链存储结构</h3><p>采取链表形式存储串值，用户自定义节点即块的大小，称之为块链结构；  </p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">#define CHUNKSIZE 80  &#x2F;&#x2F;自定义块的大小
+typedef struct Chunk
+&#123;
+  char ch[CHUNKSIZE];
+  struct Chunk *next;
+&#125;Chunk;
+typedef struct
+&#123;
+  Chunk *head, *tail; &#x2F;&#x2F;串的头尾指针
+  int curlen;         &#x2F;&#x2F;当前长度
+&#125;LString;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
+<h2 id="模式匹配算法"><a href="#模式匹配算法" class="headerlink" title="模式匹配算法"></a>模式匹配算法</h2><h3 id="求子串位置的定位函数Index-S-T-pos"><a href="#求子串位置的定位函数Index-S-T-pos" class="headerlink" title="求子串位置的定位函数Index(S, T, pos)"></a>求子串位置的定位函数Index(S, T, pos)</h3><p>子串的定位操作称作串的<strong>模式匹配</strong>，其中T称为<strong>模式串</strong>；<br>如下采取定长顺序存储结构，实现不依赖其他串操作的匹配算法：</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">int Index(SString S, SString T, int pos)
+&#123; &#x2F;&#x2F;返回子串T在主串S中第pos个字符之后的位置，若不存在，返回0
+  int i &#x3D; pos, j &#x3D; 1;
+  while(i &lt;&#x3D; S[0] &amp;&amp; j &lt;&#x3D; T[0])
+  &#123;
+    if(S[i] &#x3D;&#x3D; T[j])
+    &#123;
+      i++;
+      j++;
+    &#125;
+    else
+    &#123; &#x2F;&#x2F;指针回退，重新匹配
+      i &#x3D; i - j + 2;
+      j &#x3D; 1;
+    &#125;
+  &#125;
+  if(j &gt; T[0])
+    return i - T[0];
+  else 
+    return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>不过，有些情况下，该算法的效率较低，比如模式串为 00000001 ，主串为 00000000000000000000000000000000000000000000000000001 时，时间复杂度达到O(n*m);</p>
+<h3 id="KMP算法"><a href="#KMP算法" class="headerlink" title="KMP算法"></a>KMP算法</h3><h2 id="串的应用"><a href="#串的应用" class="headerlink" title="串的应用"></a>串的应用</h2>
                 
             </div>
             <hr/>
@@ -540,7 +637,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://HOUCQ4869.github.io/2023/01/11/hello-world/">http://HOUCQ4869.github.io/2023/01/11/hello-world/</a>
+                    <a href="http://HOUCQ4869.github.io/2023/01/20/string/">http://HOUCQ4869.github.io/2023/01/20/string/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -577,7 +674,15 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                                    <span class="chip bg-color">数据结构</span>
+                                </a>
+                            
+                                <a href="/tags/C/">
+                                    <span class="chip bg-color">C</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -1008,45 +1113,51 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/01/11/test-post/">
+                <a href="/2023/01/20/string/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="个人博客搭建指南">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="String">
                         
-                        <span class="card-title">个人博客搭建指南</span>
+                        <span class="card-title">String</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            This is my first blog, not just for test.
+                            数据结构之四串
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-01-11
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-20
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Web/" class="post-category">
-                                    Web
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
+                                    数据结构
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Web/">
-                        <span class="chip bg-color">Web</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                        <span class="chip bg-color">数据结构</span>
+                    </a>
+                    
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C</span>
                     </a>
                     
                 </div>
@@ -1057,36 +1168,51 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/01/11/hello-world/">
+                <a href="/2023/01/20/queue/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Queue">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">Queue</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            数据结构之三队列
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-20
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            HOUCQ
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
+                                    数据结构
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                        <span class="chip bg-color">数据结构</span>
+                    </a>
+                    
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>

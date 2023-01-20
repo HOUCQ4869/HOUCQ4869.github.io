@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>String</title>
+      <link href="/2023/01/20/string/"/>
+      <url>/2023/01/20/string/</url>
+      
+        <content type="html"><![CDATA[<h1 id="String"><a href="#String" class="headerlink" title="String"></a>String</h1><h2 id="类型定义"><a href="#类型定义" class="headerlink" title="类型定义"></a>类型定义</h2><p>串（字符串）是由零个或多个字符组成的有限序列；</p><ul><li><strong>串的长度</strong>：串中字符数目n称为<strong>串的长度</strong>；</li><li><strong>空串</strong>：零个字符的串称为<strong>空串</strong>，长度为零；</li><li><strong>子串</strong>：串中任意个连续的字符组成的子序列称为该串的<strong>子串</strong>；</li><li><strong>主串</strong>：包含子串的串相应地称为<strong>主串</strong>；</li><li><strong>位置</strong>：字符在序列中的序号为该字符在串中的<strong>位置</strong>；</li></ul><p><strong>抽象数据类型</strong></p><pre class="line-numbers language-C" data-language="C"><code class="language-C">StrAssign(&amp;T, chars)          &#x2F;&#x2F;生成一个其值为chars的串TStrCopy(&amp;T, S)                &#x2F;&#x2F;由串S复制得串TStrEmpty(S, T)                &#x2F;&#x2F;若S为空串，则返回TRUE，否则返回FALSEStrCompare(S, T)              &#x2F;&#x2F;S &gt; T，返回值大于0；S &#x3D; T，返回值等于0； S &lt; T，返回值小于0 StrLength(S)                  &#x2F;&#x2F;返回S的元素个数，称为串的长度ClearString(&amp;S)               &#x2F;&#x2F;将S清为空串Concat(&amp;T, S1, S2)            &#x2F;&#x2F;T返回S1和S2连接的新串SubString(&amp;Sub, S, pos, len)  &#x2F;&#x2F;Sub返回串S的第pos个字符起长度为len的子串Index(S, T, pos)              &#x2F;&#x2F;返回主串S中第pos个字符之后第一次出现与串T相同的子串的位置，无则返回0Replace(&amp;S, T, V)             &#x2F;&#x2F;用V替换主串S中出现的所有与T相等的不重叠的子串StrInsert(&amp;S, pos, T)         &#x2F;&#x2F;在串S的pos个字符之前插入串TStrDelete(&amp;S, pos, len)       &#x2F;&#x2F;从串S中删除第pos个字符起长度为len的子串DestoryString(&amp;S)             &#x2F;&#x2F;销毁串S<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>上述13中操作中，StrAssign,StrCompare,StrLength,Concat,SubString五种操作构成串类型的最小操作子集；<br>如下根据最小操作子集实现Index操作：  </p><pre class="line-numbers language-C" data-language="C"><code class="language-C">int Index(String S, String T, int pos)&#123;  if(pos &gt; 0)  &#123;    int n &#x3D; StrLength(S);    int m &#x3D; StrLength(T);    int i &#x3D; pos;    String sub;    while(i &lt;&#x3D; n - m + 1)    &#123; &#x2F;&#x2F;从S的pos位置后依次取T长度个的子串进行比较      SubString(sub, S, i, m);      if(StrCompare(sub, T) !&#x3D; 0)        i++;      else         return i;    &#125;  &#125;  return 0;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="串的表示及实现"><a href="#串的表示及实现" class="headerlink" title="串的表示及实现"></a>串的表示及实现</h2><h3 id="定长顺序存储结构"><a href="#定长顺序存储结构" class="headerlink" title="定长顺序存储结构"></a>定长顺序存储结构</h3><p>用一组地址连续的储存单元存储，如下：</p><pre class="line-numbers language-C" data-language="C"><code class="language-C">#define MAXSTRLEN 255#define OK 1#define ERROR 0typedef int Status;typedef unsigned char SString[MAXSTRLEN + 1]; &#x2F;&#x2F;0号单元存放串的长度<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="基本实现"><a href="#基本实现" class="headerlink" title="基本实现"></a>基本实现</h3><h4 id="Concat"><a href="#Concat" class="headerlink" title="Concat"></a>Concat</h4><h3 id="堆分配存储结构"><a href="#堆分配存储结构" class="headerlink" title="堆分配存储结构"></a>堆分配存储结构</h3><p>仍采用一组地址连续的储存单元存放，但存储空间采取动态分配，如下：</p><pre class="line-numbers language-C" data-language="C"><code class="language-C">typedef struct&#123;  char *ch;  int length;&#125;HString;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="基本实现-1"><a href="#基本实现-1" class="headerlink" title="基本实现"></a>基本实现</h3><h3 id="块链存储结构"><a href="#块链存储结构" class="headerlink" title="块链存储结构"></a>块链存储结构</h3><p>采取链表形式存储串值，用户自定义节点即块的大小，称之为块链结构；  </p><pre class="line-numbers language-C" data-language="C"><code class="language-C">#define CHUNKSIZE 80  &#x2F;&#x2F;自定义块的大小typedef struct Chunk&#123;  char ch[CHUNKSIZE];  struct Chunk *next;&#125;Chunk;typedef struct&#123;  Chunk *head, *tail; &#x2F;&#x2F;串的头尾指针  int curlen;         &#x2F;&#x2F;当前长度&#125;LString;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="模式匹配算法"><a href="#模式匹配算法" class="headerlink" title="模式匹配算法"></a>模式匹配算法</h2><h3 id="求子串位置的定位函数Index-S-T-pos"><a href="#求子串位置的定位函数Index-S-T-pos" class="headerlink" title="求子串位置的定位函数Index(S, T, pos)"></a>求子串位置的定位函数Index(S, T, pos)</h3><p>子串的定位操作称作串的<strong>模式匹配</strong>，其中T称为<strong>模式串</strong>；<br>如下采取定长顺序存储结构，实现不依赖其他串操作的匹配算法：</p><pre class="line-numbers language-C" data-language="C"><code class="language-C">int Index(SString S, SString T, int pos)&#123; &#x2F;&#x2F;返回子串T在主串S中第pos个字符之后的位置，若不存在，返回0  int i &#x3D; pos, j &#x3D; 1;  while(i &lt;&#x3D; S[0] &amp;&amp; j &lt;&#x3D; T[0])  &#123;    if(S[i] &#x3D;&#x3D; T[j])    &#123;      i++;      j++;    &#125;    else    &#123; &#x2F;&#x2F;指针回退，重新匹配      i &#x3D; i - j + 2;      j &#x3D; 1;    &#125;  &#125;  if(j &gt; T[0])    return i - T[0];  else     return 0;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>不过，有些情况下，该算法的效率较低，比如模式串为 00000001 ，主串为 00000000000000000000000000000000000000000000000000001 时，时间复杂度达到O(n*m);</p><h3 id="KMP算法"><a href="#KMP算法" class="headerlink" title="KMP算法"></a>KMP算法</h3><h2 id="串的应用"><a href="#串的应用" class="headerlink" title="串的应用"></a>串的应用</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据结构 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据结构 </tag>
+            
+            <tag> C </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Queue</title>
       <link href="/2023/01/20/queue/"/>
       <url>/2023/01/20/queue/</url>
