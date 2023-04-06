@@ -6,7 +6,7 @@
   <link href="http://houcq4869.github.io/atom.xml" rel="self"/>
   
   <link href="http://houcq4869.github.io/"/>
-  <updated>2023-02-22T12:43:09.912Z</updated>
+  <updated>2023-04-06T02:33:46.642Z</updated>
   <id>http://houcq4869.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>OSLab1</title>
+    <link href="http://houcq4869.github.io/2023/04/06/oslab1/"/>
+    <id>http://houcq4869.github.io/2023/04/06/oslab1/</id>
+    <published>2023-04-06T02:16:44.000Z</published>
+    <updated>2023-04-06T02:33:46.642Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Lab1-实验报告&quot;&gt;&lt;a href=&quot;#Lab1-实验报告&quot; class=&quot;headerlink&quot; title=&quot;Lab1 实验报告&quot;&gt;&lt;/a&gt;Lab1 实验报告&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;PB21111618 侯超群&lt;/strong&gt;&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="OSLab" scheme="http://houcq4869.github.io/categories/OSLab/"/>
+    
+    
+    <category term="OS" scheme="http://houcq4869.github.io/tags/OS/"/>
+    
+    <category term="linux" scheme="http://houcq4869.github.io/tags/linux/"/>
+    
+  </entry>
   
   <entry>
     <title>Graph</title>

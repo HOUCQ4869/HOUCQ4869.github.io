@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>OSLab1</title>
+      <link href="/2023/04/06/oslab1/"/>
+      <url>/2023/04/06/oslab1/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Lab1-实验报告"><a href="#Lab1-实验报告" class="headerlink" title="Lab1 实验报告"></a>Lab1 实验报告</h1><p><strong>PB21111618 侯超群</strong></p><h2 id="实验目标"><a href="#实验目标" class="headerlink" title="实验目标"></a>实验目标</h2><p>本次实验用于实现multiboot header部分,并在屏幕以及串口上输出特定内容；</p><h2 id="实验原理"><a href="#实验原理" class="headerlink" title="实验原理"></a>实验原理</h2><h3 id="multiboot启动协议介绍"><a href="#multiboot启动协议介绍" class="headerlink" title="multiboot启动协议介绍"></a>multiboot启动协议介绍</h3><p>multiboot作为一种启动引导协议，能够制定bootloader和操作系统之间的接口，解决多系统与不同bootloader可能的矛盾；</p><h3 id="qemu介绍"><a href="#qemu介绍" class="headerlink" title="qemu介绍"></a>qemu介绍</h3><p>qemu作为模拟器，用于模拟硬件设备，其支持multiboot协议，在该实验中，用于提供裸机环境，使用qemu启动所编写的内核；</p><h3 id="VGA介绍"><a href="#VGA介绍" class="headerlink" title="VGA介绍"></a>VGA介绍</h3><p>VGA作为一种显示方式，可以通过向VGA显存中写入内容来实现字符的显示；<br>VGA显存起始地址0xB8000,由存放字符的ASCLl码以及该字符的显示属性构成两个字节；<br><a href="https://imgse.com/i/ppI6xiR"><img src="https://s1.ax1x.com/2023/04/06/ppI6xiR.png" alt="VGA"></a></p><h3 id="串口介绍"><a href="#串口介绍" class="headerlink" title="串口介绍"></a>串口介绍</h3><p>UART，全称通用异步收发传输器，是一种串行异步收发协议，原理是将传输数据的每个二进制位一位一位地传输；<br>在qemu中，在没有初始化波特率的情况下，也可以直接写UART，正确输出；<br>串口端口地址为0x3F8，可依次调用，实现各个字符输出；</p><h2 id="源代码说明"><a href="#源代码说明" class="headerlink" title="源代码说明"></a>源代码说明</h2><pre class="line-numbers language-none"><code class="language-none">movl $0x2f652f48, 0xB8000<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>该段代码中，将字符以及显示属性，写入VGA显存中，其中0x2f652f48中,65,48分别对应ASCLL码中的e,H；前面的2f为其显示属性，写入到起始地址0x8000；</p><pre class="line-numbers language-none"><code class="language-none">movw $0x3F8, %dx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>该段代码中，初始化串口，将串口端口地址存入dx寄存器，便于之后输出显示；</p><pre class="line-numbers language-none"><code class="language-none">movb $0x68, %al<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>该段代码中，将待显示的字符h写入寄存器al中，再通过outb实现输出；</p><h2 id="代码布局说明"><a href="#代码布局说明" class="headerlink" title="代码布局说明"></a>代码布局说明</h2><pre class="line-numbers language-none"><code class="language-none">OUTPUT_FORMAT(&quot;elf32-i386&quot;, &quot;elf32-i386&quot;, &quot;elf32-i386&quot;)OUTPUT_ARCH(i386)ENTRY(start)SECTIONS &#123;        . &#x3D; 1M;        .text : &#123;                *(.multiboot_header)                . &#x3D; ALIGN(8);                *(.text)        &#125;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>.表示当前位置，则.&#x3D;1M使用物理内存的1M开始放置数据和代码；</li><li>内容以multiboot_header开始，12个字节；</li><li>.&#x3D;ALIGN(8)，8字节对齐后放置写入VGA的代码；</li></ul><h2 id="编译过程说明"><a href="#编译过程说明" class="headerlink" title="编译过程说明"></a>编译过程说明</h2><pre class="line-numbers language-none"><code class="language-none">ASM_FLAGS&#x3D; -m32 --pipe -Wall -fasm -g -O1 -fno-stack-protectormultibootHeader.bin: multibootHeader.Sgcc -c $&#123;ASM_FLAGS&#125; multibootHeader.S -o multibootHeader.old -n -T multibootHeader.ld multibootHeader.o -o multibootHeader.binclean:rm -rf .&#x2F;multibootHeader.bin .&#x2F;multibootHeader.o<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>以上为Makefile文件，ASM_FLAGS先定义汇编标记，表示编译中gcc指令的参数；</li><li>使用gcc生成目标文件.o文件；</li><li>根据链接器.ld文件，根据部署要求从.o文件得到.bin文件；</li><li>clean指令用于删除生成的.o文件和.bin文件；</li></ul><p>在使用make指令生成.bin文件后，输入如下指令来运行qemu</p><pre class="line-numbers language-none"><code class="language-none">qemu-system-i386 -kernel multibootHeader.bin -serial stdio<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>其中qemu-system-i386指定平台i386，-kernel指定内核文件，-serial stdio指定串行终端为标准输入输出</p><h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><ul><li>串口输出如下：<strong>显示hcq</strong><br><img src="https://s1.ax1x.com/2023/04/06/ppI6jo9.png" alt="串口显示"></li><li>VGA输出如下：<strong>显示Hello,PB21111618-houchaoqun!</strong><br><img src="https://s1.ax1x.com/2023/04/06/ppI6XdJ.png" alt="VGA显示"></li></ul><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>开始时使用vmware虚拟机时在Vmaretools设置共享文件夹，但无法找到&#x2F;mnt&#x2F;c&#x2F;下的共享文件夹，经搜索无果，因此又采用了第一种方法配置wsl2，通过建立符号链接实现配置；</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> OSLab </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> OS </tag>
+            
+            <tag> linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Graph</title>
       <link href="/2023/02/22/graph/"/>
       <url>/2023/02/22/graph/</url>
