@@ -1,7 +1,7 @@
 ---
 title: "Hello World"
 published: 2023-01-11 16:04:58
-image: "/images/covers/hello-world-0.jpg"
+image: "/images/covers/hello-world-0.webp"
 draft: false
 ---
 Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).

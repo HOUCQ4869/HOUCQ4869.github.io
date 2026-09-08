@@ -2,7 +2,7 @@
 title: "OSLab1"
 published: 2023-04-06 10:16:44
 description: "操作系统实验之一"
-image: "/images/covers/oslab1-11.jpg"
+image: "/images/covers/oslab1-11.webp"
 tags: ["OS", "linux"]
 category: "OSLab"
 draft: false
@@ -21,7 +21,7 @@ qemu作为模拟器，用于模拟硬件设备，其支持multiboot协议，在�
 ### VGA介绍
 VGA作为一种显示方式，可以通过向VGA显存中写入内容来实现字符的显示；  
 VGA显存起始地址0xB8000,由存放字符的ASCLl码以及该字符的显示属性构成两个字节；
-![VGA](/images/posts/oslab1/ppI6xiR.png)
+![VGA](/images/posts/oslab1/ppI6xiR.webp)
 ### 串口介绍
 UART，全称通用异步收发传输器，是一种串行异步收发协议，原理是将传输数据的每个二进制位一位一位地传输；  
 在qemu中，在没有初始化波特率的情况下，也可以直接写UART，正确输出；
@@ -86,9 +86,9 @@ qemu-system-i386 -kernel multibootHeader.bin -serial stdio
 
 ## 实验结果
 * 串口输出如下：**显示hcq**
-![串口显示](/images/posts/oslab1/ppI6jo9.png)
+![串口显示](/images/posts/oslab1/ppI6jo9.webp)
 * VGA输出如下：**显示Hello,PB21111618-houchaoqun!**
-![VGA显示](/images/posts/oslab1/ppI6XdJ.png)
+![VGA显示](/images/posts/oslab1/ppI6XdJ.webp)
 
 ## 问题
 开始时使用vmware虚拟机时在Vmaretools设置共享文件夹，但无法找到/mnt/c/下的共享文件夹，经搜索无果，因此又采用了第一种方法配置wsl2，通过建立符号链接实现配置；

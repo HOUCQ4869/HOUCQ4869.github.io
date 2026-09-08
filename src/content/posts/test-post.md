@@ -2,7 +2,7 @@
 title: "个人博客搭建指南"
 published: 2023-01-11 23:11:25
 description: "This is my first blog, not just for test."
-image: "/images/covers/test-post-1.jpg"
+image: "/images/covers/test-post-1.webp"
 tags: ["Web"]
 category: "Web"
 draft: false
@@ -14,7 +14,7 @@ Hello, everyone.
 ## 引用图片  
 **推荐使用图床上传**，便于加快访问速度  
 ### 本地资源导入
-<img src="/images/posts/test-post/cover.jpg" alt="相对路径图片" style="zoom:33%;" />
+<img src="/images/posts/test-post/cover.webp" alt="相对路径图片" style="zoom:33%;" />
 
 添加方式：  
 在博客根目录下的_config.yml配置文件中，设置  
@@ -27,7 +27,7 @@ post_asset_folder: true
 ~~~
 
 ### 图床上传
-![图床照片](/images/posts/test-post/pSKHRX9.jpg)
+![图床照片](/images/posts/test-post/pSKHRX9.webp)
 
 添加方式：  
 搜索图床，选择合适的即可，可参考[这里](https://imgse.com/)

@@ -2,7 +2,7 @@
 title: "Stack"
 published: 2023-01-19 17:54:19
 description: "数据结构之二栈"
-image: "/images/covers/stack-3.jpg"
+image: "/images/covers/stack-3.webp"
 tags: ["数据结构", "C"]
 category: "数据结构"
 draft: false

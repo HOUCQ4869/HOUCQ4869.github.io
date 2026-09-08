@@ -2,7 +2,7 @@
 title: "Graph"
 published: 2023-02-22 20:41:59
 description: "数据结构之六图"
-image: "/images/covers/graph-7.jpg"
+image: "/images/covers/graph-7.webp"
 tags: ["数据结构", "C"]
 category: "数据结构"
 draft: false

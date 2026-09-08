@@ -2,7 +2,7 @@
 title: "Queue"
 published: 2023-01-20 11:22:44
 description: "数据结构之三队列"
-image: "/images/covers/queue-4.jpg"
+image: "/images/covers/queue-4.webp"
 tags: ["数据结构", "C"]
 category: "数据结构"
 draft: false
