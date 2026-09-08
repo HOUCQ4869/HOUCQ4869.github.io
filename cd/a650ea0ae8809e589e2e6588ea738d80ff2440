@@ -1,0 +1,48 @@
+src/content/posts/linear-list.md
+  s_b3b21d772c55d2::t_6eb689e64ffdc8 5
+src/content/posts/test-post.md
+  s_b3b21d772c55d2::t_6eb689e64ffdc8 5,17
+  s_b3b21d772c55d2::t_ba8cdbfb13f0f2 30
+src/content/posts/string.md
+  s_b3b21d772c55d2::t_6eb689e64ffdc8 5
+src/content/posts/hello-world.md
+  s_b3b21d772c55d2::t_6eb689e64ffdc8 4
+src/content/posts/tree.md
+  s_b3b21d772c55d2::t_6eb689e64ffdc8 5
+src/layouts/MainGridLayout.astro
+  s_b3b21d772c55d2::t_ff9b13a0dcd8ee 24,34,46
+src/pages/posts/[...slug].astro
+  s_b3b21d772c55d2::t_ff9b13a0dcd8ee 49
+src/content/posts/queue.md
+  s_b3b21d772c55d2::t_6eb689e64ffdc8 5
+src/content/posts/graph.md
+  s_b3b21d772c55d2::t_6eb689e64ffdc8 5
+src/content/posts/oslab1.md
+  s_b3b21d772c55d2::t_6eb689e64ffdc8 5
+  s_b3b21d772c55d2::t_ba8cdbfb13f0f2 24,89,91
+src/content/posts/stack.md
+  s_b3b21d772c55d2::t_6eb689e64ffdc8 5
+src/config.ts
+  s_b3b21d772c55d2::t_462fb4146674f9 35-40
+src/layouts/Layout.astro
+  s_b3b21d772c55d2::t_50ac86dbd69905 29,32
+  s_b3b21d772c55d2::t_2611c18d9bad4b 61-64
+  s_b3b21d772c55d2::t_5c5b08070db371 107-112
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "5.29.1408",
+  "base_commit_sha": "cda650ea0ae8809e589e2e6588ea738d80ff2440",
+  "prompts": {},
+  "sessions": {
+    "s_b3b21d772c55d2": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f84cf296fffeSATWZrF6n5ep7D",
+        "model": "qwen3.8-max"
+      },
+      "human_author": "houchaoqun <houchaoqun@h-partners.com>",
+      "total_deletions": 18
+    }
+  }
+}
