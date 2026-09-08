@@ -5,6 +5,10 @@ import PostPage from "../components/PostPage.astro";
 import { PAGE_SIZE } from "../constants/constants";
 import MainGridLayout from "../layouts/MainGridLayout.astro";
 import { getSortedPosts } from "../utils/content-utils";
+import { getPostUrlBySlug } from "../utils/url-utils";
+import Markdown from "@components/misc/Markdown.astro";
+import PostMetadata from "../components/PostMeta.astro";
+import { Icon } from "astro-icon/components";
 
 export const getStaticPaths = (async ({ paginate }) => {
 	const allBlogPosts = await getSortedPosts();
@@ -14,10 +18,70 @@ export const getStaticPaths = (async ({ paginate }) => {
 
 const { page } = Astro.props;
 
+const isHomePage = page.currentPage === 1;
+const latest = isHomePage ? page.data[0] : null;
+const rest = isHomePage ? page.data.slice(1) : page.data;
+const rendered = latest ? await latest.render() : null;
+const Content = rendered?.Content;
+const headings = rendered?.headings ?? [];
 const len = page.data.length;
 ---
 
-<MainGridLayout>
-    <PostPage page={page}></PostPage>
-    <Pagination class="mx-auto onload-animation" page={page} style={`animation-delay: calc(var(--content-delay) + ${(len)*50}ms)`}></Pagination>
+<MainGridLayout headings={headings}>
+    {isHomePage && latest && Content ? (
+        <div class="flex flex-col gap-4 mb-4">
+            <!-- latest post, rendered in full on the home page -->
+            <div class="card-base z-10 px-6 md:px-9 pt-6 pb-4 relative w-full onload-animation">
+                <div class="relative onload-animation">
+                    <div
+                        class="transition w-full block font-bold mb-3
+                        text-3xl md:text-[2.25rem]/[2.75rem]
+                        text-black/90 dark:text-white/90
+                        md:before:w-1 before:h-5 before:rounded-md before:bg-[var(--primary)]
+                        before:absolute before:top-[0.75rem] before:left-[-1.125rem]
+                    ">
+                        {latest.data.title}
+                    </div>
+                </div>
+                <PostMetadata
+                    class="mb-5"
+                    published={latest.data.published}
+                    updated={latest.data.updated}
+                    tags={latest.data.tags}
+                    category={latest.data.category}
+                ></PostMetadata>
+                <Markdown noIndex class="mb-2 markdown-content onload-animation">
+                    <Content />
+                </Markdown>
+            </div>
+
+            <!-- compact list of earlier posts -->
+            {rest.length > 0 && (
+                <div class="card-base px-6 md:px-9 py-5 onload-animation" style={`animation-delay: calc(var(--content-delay) + 50ms);`}>
+                    <div class="flex items-center gap-2 font-bold text-black/80 dark:text-white/80 mb-3">
+                        <Icon name="material-symbols:history-rounded" class="text-[1.1rem]"></Icon>
+                        往期回顾
+                    </div>
+                    <ul class="flex flex-col">
+                        {rest.map((entry, i) => (
+                            <li class:list={["flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6 py-2.5", { "border-t border-dashed border-[var(--line-divider)]": i > 0 }]}>
+                                <time class="text-sm text-neutral-500 dark:text-neutral-400 shrink-0 tabular-nums">
+                                    {entry.data.published.toISOString().slice(0, 10)}
+                                </time>
+                                <a href={getPostUrlBySlug(entry.slug)} class="font-medium text-black/80 dark:text-white/80 hover:text-[var(--primary)] dark:hover:text-[var(--primary)] transition">
+                                    {entry.data.title}
+                                </a>
+                                <span class="text-sm text-neutral-500 dark:text-neutral-400 sm:ml-auto hidden sm:block">{entry.data.description}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            )}
+        </div>
+    ) : (
+        <>
+            <PostPage page={page}></PostPage>
+            <Pagination class="mx-auto onload-animation" page={page} style={`animation-delay: calc(var(--content-delay) + ${(len) * 50}ms);`}></Pagination>
+        </>
+    )}
 </MainGridLayout>
