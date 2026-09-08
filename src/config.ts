@@ -17,7 +17,7 @@ export const siteConfig: SiteConfig = {
 		fixed: false,
 	},
 	banner: {
-		enable: false,
+		enable: true,
 		src: "assets/images/banner.jpg",
 		position: "center",
 		credit: {
