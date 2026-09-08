@@ -1,0 +1,18 @@
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "5.29.1408",
+  "base_commit_sha": "cfbf42f4727567ed92fa14a993f3953b879a7716",
+  "prompts": {},
+  "sessions": {
+    "s_b3b21d772c55d2": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f84cf296fffeSATWZrF6n5ep7D",
+        "model": "qwen3.8-max"
+      },
+      "human_author": "houchaoqun <houchaoqun@h-partners.com>",
+      "total_deletions": 2
+    }
+  }
+}
