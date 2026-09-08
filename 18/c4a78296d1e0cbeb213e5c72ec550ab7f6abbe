@@ -1,0 +1,30 @@
+src/config.ts
+  s_b3b21d772c55d2::t_f87099a8e3c31d 20
+src/styles/variables.styl
+  s_b3b21d772c55d2::t_a441bfdce5c214 12
+src/components/misc/Markdown.astro
+  s_b3b21d772c55d2::t_1a9c1f9e72847d 7,9
+  s_b3b21d772c55d2::t_d5919358327f11 12-22,26-34,36-39,41,43-46,48-49
+  s_b3b21d772c55d2::t_ab04a48ab874f3 11
+src/pages/[...page].astro
+  s_b3b21d772c55d2::t_c696892057c1f6 8-11,22-26,30-33,35-52,54-87
+  s_b3b21d772c55d2::t_796ee59f05afbf 21
+  s_b3b21d772c55d2::t_1a9c1f9e72847d 34,53
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "5.29.1408",
+  "base_commit_sha": "18c4a78296d1e0cbeb213e5c72ec550ab7f6abbe",
+  "prompts": {},
+  "sessions": {
+    "s_b3b21d772c55d2": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f84cf296fffeSATWZrF6n5ep7D",
+        "model": "qwen3.8-max"
+      },
+      "human_author": "houchaoqun <houchaoqun@h-partners.com>",
+      "total_deletions": 46
+    }
+  }
+}
