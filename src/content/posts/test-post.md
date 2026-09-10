@@ -1,10 +1,9 @@
 ---
 title: "个人博客搭建指南"
-published: 2023-01-11 23:11:25
+pubDatetime: 2023-01-11T23:11:25+08:00
 description: "This is my first blog, not just for test."
-image: "/images/covers/test-post-1.webp"
+ogImage: "/images/covers/test-post-1.webp"
 tags: ["Web"]
-category: "Web"
 draft: false
 ---
 Hello, everyone.

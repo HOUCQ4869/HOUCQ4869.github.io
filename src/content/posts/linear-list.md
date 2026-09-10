@@ -1,10 +1,9 @@
 ---
 title: "Linear_list"
-published: 2023-01-18 18:35:06
+pubDatetime: 2023-01-18T18:35:06+08:00
 description: "数据结构之一线性表"
-image: "/images/covers/linear-list-2.webp"
+ogImage: "/images/covers/linear-list-2.webp"
 tags: ["数据结构", "C"]
-category: "数据结构"
 draft: false
 ---
 # Linear_list 

@@ -1,10 +1,9 @@
 ---
 title: "OSLab1"
-published: 2023-04-06 10:16:44
+pubDatetime: 2023-04-06T10:16:44+08:00
 description: "操作系统实验之一"
-image: "/images/covers/oslab1-11.webp"
-tags: ["OS", "linux"]
-category: "OSLab"
+ogImage: "/images/covers/oslab1-11.webp"
+tags: ["OS", "linux", "OSLab"]
 draft: false
 ---
 # Lab1 实验报告

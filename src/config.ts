@@ -1,104 +1,41 @@
-import type {
-	ExpressiveCodeConfig,
-	GiscusConfig,
-	LicenseConfig,
-	NavBarConfig,
-	ProfileConfig,
-	SiteConfig,
-} from "./types/config";
-import { LinkPreset } from "./types/config";
+/**
+ * Internal resolved configuration used throughout the codebase.
+ *
+ * Prefer editing `astro-paper.config.ts` instead of this file. This module exists to
+ * apply defaults and expose a fully-resolved config shape (`ResolvedAstroPaperConfig`).
+ */
+import userConfig from "@/astro-paper.config";
+import type { ResolvedAstroPaperConfig } from "./types/config";
+import { PUBLIC_GOOGLE_SITE_VERIFICATION } from "astro:env/client";
 
-export const siteConfig: SiteConfig = {
-	title: "HOUCQ",
-	subtitle: "Welcome to HOUCQ's Blog",
-	lang: "zh_CN",
-	themeColor: {
-		hue: 250,
-		fixed: false,
-	},
-	banner: {
-		enable: true,
-		src: "assets/images/banner.jpg",
-		position: "center",
-		credit: {
-			enable: false,
-			text: "",
-			url: "",
-		},
-	},
-	toc: {
-		enable: true,
-		depth: 2,
-	},
-	favicon: [
-		{
-			src: "/favicon/favicon-32.png",
-			sizes: "32x32",
-		},
-		{
-			src: "/favicon/favicon-16.png",
-			sizes: "16x16",
-		},
-	],
+const DEFAULT_OG_IMAGE = "default-og.jpg";
+
+const config: ResolvedAstroPaperConfig = {
+  site: {
+    ...userConfig.site,
+    ogImage: userConfig.site.ogImage ?? DEFAULT_OG_IMAGE,
+    lang: userConfig.site.lang ?? "en",
+    timezone: userConfig.site.timezone ?? "UTC",
+    dir: userConfig.site.dir ?? "ltr",
+    googleVerification:
+      userConfig.site.googleVerification || PUBLIC_GOOGLE_SITE_VERIFICATION,
+  },
+  posts: {
+    perPage: userConfig.posts?.perPage ?? 4,
+    perIndex: userConfig.posts?.perIndex ?? 4,
+    scheduledPostMargin:
+      userConfig.posts?.scheduledPostMargin ?? 15 * 60 * 1000,
+  },
+  features: {
+    lightAndDarkMode: userConfig.features?.lightAndDarkMode ?? true,
+    dynamicOgImage: userConfig.features?.dynamicOgImage ?? true,
+    showArchives: userConfig.features?.showArchives ?? true,
+    showBackButton: userConfig.features?.showBackButton ?? true,
+    editPost: userConfig.features?.editPost ?? { enabled: false },
+    search: userConfig.features?.search ?? "pagefind",
+  },
+  socials: userConfig.socials ?? [],
+  shareLinks: userConfig.shareLinks ?? [],
 };
 
-export const navBarConfig: NavBarConfig = {
-	links: [
-		LinkPreset.Home,
-		LinkPreset.Archive,
-		LinkPreset.About,
-		{
-			name: "归尘",
-			url: "/2023/01/16/gui-chen/",
-			external: true,
-		},
-		{
-			name: "GitHub",
-			url: "https://github.com/HOUCQ4869",
-			external: true,
-		},
-	],
-};
-
-export const profileConfig: ProfileConfig = {
-	avatar: "assets/images/avatar.jpg",
-	name: "HOUCQ",
-	bio: "USTC 在读中……",
-	links: [
-		{
-			name: "GitHub",
-			icon: "fa6-brands:github",
-			url: "https://github.com/HOUCQ4869",
-		},
-		{
-			name: "Email",
-			icon: "fa6-solid:envelope",
-			url: "mailto:houchaoqun@mail.ustc.edu.cn",
-		},
-		{
-			name: "知乎",
-			icon: "fa6-brands:zhihu",
-			url: "https://www.zhihu.com/people/houcq-30",
-		},
-	],
-};
-
-export const licenseConfig: LicenseConfig = {
-	enable: false,
-	name: "CC BY-NC-SA 4.0",
-	url: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
-};
-
-export const giscusConfig: GiscusConfig = {
-	enable: false, // TODO: 在仓库开启 Discussions 并安装 giscus App 后，填入 repoId/categoryId 并改为 true
-	repo: "HOUCQ4869/HOUCQ4869.github.io",
-	repoId: "", // 从 https://giscus.app 获取（repository node_id）
-	category: "Announcements",
-	categoryId: "", // 从 https://giscus.app 获取
-	mapping: "pathname",
-	lang: "zh-CN",
-};
-
-export const expressiveCodeConfig: ExpressiveCodeConfig = {
-	theme: "github-dark",
-};
+export default config;

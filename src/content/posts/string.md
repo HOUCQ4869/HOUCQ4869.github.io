@@ -1,10 +1,9 @@
 ---
 title: "String"
-published: 2023-01-20 16:28:25
+pubDatetime: 2023-01-20T16:28:25+08:00
 description: "数据结构之四串"
-image: "/images/covers/string-5.webp"
+ogImage: "/images/covers/string-5.webp"
 tags: ["数据结构", "C"]
-category: "数据结构"
 draft: false
 ---
 # String

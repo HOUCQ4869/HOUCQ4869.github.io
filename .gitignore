@@ -1,6 +1,9 @@
 # build output
 dist/
 
+# pnpm store (may be localized in sandbox/CI)
+.pnpm-store/
+
 # generated types
 .astro/
 

@@ -1,10 +1,9 @@
 ---
 title: "Tree"
-published: 2023-02-13 20:09:21
+pubDatetime: 2023-02-13T20:09:21+08:00
 description: "数据结构之五树"
-image: "/images/covers/tree-6.webp"
+ogImage: "/images/covers/tree-6.webp"
 tags: ["数据结构", "C"]
-category: "数据结构"
 draft: false
 ---
 # Tree
