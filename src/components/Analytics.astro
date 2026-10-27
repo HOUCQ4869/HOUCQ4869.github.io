@@ -9,7 +9,7 @@ const enabled = analytics.enabled && analytics.token !== "";
   enabled && (
     <script
       is:inline
-      defer
+      type="module"
       src="https://static.cloudflareinsights.com/beacon.min.js"
       data-cf-beacon={JSON.stringify({ token: analytics.token })}
     />

@@ -36,10 +36,10 @@ export default defineAstroPaperConfig({
       category: "Announcements",
       categoryId: "DIC_kwDOIwV9As4DFGx8",
     },
-    // Cloudflare Web Analytics：填入 token 后把 enabled 改为 true
+    // Cloudflare Web Analytics（token 来自 Cloudflare 控制台）
     analytics: {
-      enabled: false,
-      token: "",
+      enabled: true,
+      token: "b4b92090681548118d4e30b95022de56",
     },
   },
   socials: [
