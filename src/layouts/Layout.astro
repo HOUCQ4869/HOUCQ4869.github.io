@@ -4,6 +4,7 @@ import { getRelativeLocaleUrl } from "astro:i18n";
 import { resolveDefaultOgImagePath } from "@/utils/resolveDefaultOgImagePath";
 import { getAssetPath } from "@/utils/withBase";
 import config from "@/config";
+import Analytics from "@/components/Analytics.astro";
 import "@/styles/global.css";
 
 type Props = {
@@ -25,7 +26,7 @@ const {
 const socialImageURL = new URL(ogImage, Astro.site ?? Astro.url);
 const rssHref = getRelativeLocaleUrl(
   Astro.currentLocale ?? config.site.lang,
-  "rss.xml"
+  "rss.xml",
 );
 ---
 
@@ -39,7 +40,10 @@ const rssHref = getRelativeLocaleUrl(
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href={getAssetPath("favicon.svg")} />
-    <link rel="apple-touch-icon" href={getAssetPath("favicon/apple-touch-icon.png")} />
+    <link
+      rel="apple-touch-icon"
+      href={getAssetPath("favicon/apple-touch-icon.png")}
+    />
     <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
 
@@ -79,6 +83,8 @@ const rssHref = getRelativeLocaleUrl(
     <!-- Extra head content injected by child layouts (e.g. JSON-LD, article meta) -->
     <slot name="head" />
 
+    <Analytics />
+
     {
       site.googleVerification && (
         <meta
@@ -96,7 +102,7 @@ const rssHref = getRelativeLocaleUrl(
       (function () {
         const stored = localStorage.getItem("theme");
         const prefersDark = window.matchMedia(
-          "(prefers-color-scheme: dark)"
+          "(prefers-color-scheme: dark)",
         ).matches;
         const theme = stored ?? (prefersDark ? "dark" : "light");
         const root = document.firstElementChild;

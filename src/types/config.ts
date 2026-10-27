@@ -33,6 +33,27 @@ interface PostsConfig {
   scheduledPostMargin?: number;
 }
 
+interface GiscusCommentsConfig {
+  /** Enable the giscus comment section on post pages. */
+  enabled: boolean;
+  /**
+   * Target GitHub repository with Discussions enabled and the giscus app
+   * installed, e.g. "HOUCQ4869/HOUCQ4869.github.io".
+   * Generate repoId/category/categoryId at https://giscus.app
+   */
+  repo: string;
+  repoId: string;
+  category: string;
+  categoryId: string;
+}
+
+interface CloudflareAnalyticsConfig {
+  /** Enable Cloudflare Web Analytics (privacy-friendly, no cookies). */
+  enabled: boolean;
+  /** Beacon token from the Cloudflare dashboard. */
+  token: string;
+}
+
 interface FeaturesConfig {
   /** Enable light/dark mode toggle. Defaults to true. */
   lightAndDarkMode?: boolean;
@@ -59,6 +80,10 @@ interface FeaturesConfig {
    * Set to false to disable search entirely.
    */
   search?: "pagefind" | false;
+  /** giscus comment section on post pages. Disabled by default. */
+  comments?: GiscusCommentsConfig;
+  /** Cloudflare Web Analytics beacon. Disabled by default. */
+  analytics?: CloudflareAnalyticsConfig;
 }
 
 interface SocialLink {
@@ -130,7 +155,7 @@ export interface ResolvedAstroPaperConfig {
  * Provides full IntelliSense without any runtime overhead.
  */
 export function defineAstroPaperConfig(
-  config: AstroPaperConfig
+  config: AstroPaperConfig,
 ): AstroPaperConfig {
   return config;
 }

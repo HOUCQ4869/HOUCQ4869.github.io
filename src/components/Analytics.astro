@@ -1,0 +1,17 @@
+---
+import config from "@/config";
+
+const { analytics } = config.features;
+const enabled = analytics.enabled && analytics.token !== "";
+---
+
+{
+  enabled && (
+    <script
+      is:inline
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon={JSON.stringify({ token: analytics.token })}
+    />
+  )
+}
