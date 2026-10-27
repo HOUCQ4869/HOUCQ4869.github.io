@@ -1,0 +1,21 @@
+src/components/Analytics.astro
+  s_076f71e852b75a::t_dd3275f296e294 12
+astro-paper.config.ts
+  s_076f71e852b75a::t_b1b10380837eae 39,41-42
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "d650d1d4e6f5f41584495a5467101f78236fa729",
+  "prompts": {},
+  "sessions": {
+    "s_076f71e852b75a": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_e839322b9ffexuszvnuPZAytBv",
+        "model": "glm-5.3"
+      },
+      "human_author": "houchaoqun <houchaoqun@h-partners.com>"
+    }
+  }
+}
