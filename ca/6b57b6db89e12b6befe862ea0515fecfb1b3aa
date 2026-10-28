@@ -1,0 +1,39 @@
+src/pages/index.astro
+  s_076f71e852b75a::t_414508cfe35571 34,100-102
+  s_076f71e852b75a::t_343f137dd339de 4-6,16,21-23,32-33,35,37-45
+  s_076f71e852b75a::t_24d88af7349ea1 89-92,94-98,103-106,111-112,117
+public/giscus-light.css
+  s_076f71e852b75a::t_cdcfd41abd54ee 1-99
+src/styles/typography.css
+  s_076f71e852b75a::t_a4decadaf1c62d 139-143
+src/scripts/giscusTheme.ts
+  s_076f71e852b75a::t_a9a8509d613cea 1,3-5,7-9,17
+  s_076f71e852b75a::t_414508cfe35571 2,6
+public/giscus-dark.css
+  s_076f71e852b75a::t_cdcfd41abd54ee 1-99
+src/scripts/tocActive.ts
+  s_076f71e852b75a::t_414508cfe35571 3,9
+  s_076f71e852b75a::t_7cee6223904896 18,26-37,39
+  s_076f71e852b75a::t_a82a1853be88ff 38
+  s_076f71e852b75a::t_b0ad8687861731 1-2,4-8,10-17,19-25,40-44
+src/components/Comments.astro
+  s_076f71e852b75a::t_414508cfe35571 26-30,36-37
+src/pages/posts/[...slug]/index.astro
+  s_076f71e852b75a::t_2d15b3b359fb72 230-233
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "ca6b57b6db89e12b6befe862ea0515fecfb1b3aa",
+  "prompts": {},
+  "sessions": {
+    "s_076f71e852b75a": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_e839322b9ffexuszvnuPZAytBv",
+        "model": "glm-5.3"
+      },
+      "human_author": "houchaoqun <houchaoqun@h-partners.com>"
+    }
+  }
+}
