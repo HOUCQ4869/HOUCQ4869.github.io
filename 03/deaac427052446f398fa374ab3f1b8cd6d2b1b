@@ -1,0 +1,19 @@
+pnpm-lock.yaml
+  s_076f71e852b75a::t_8ac116f7d365b9 38-40,2013-2015,5019-5020
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "03deaac427052446f398fa374ab3f1b8cd6d2b1b",
+  "prompts": {},
+  "sessions": {
+    "s_076f71e852b75a": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_e839322b9ffexuszvnuPZAytBv",
+        "model": "glm-5.3"
+      },
+      "human_author": "houchaoqun <houchaoqun@h-partners.com>"
+    }
+  }
+}
