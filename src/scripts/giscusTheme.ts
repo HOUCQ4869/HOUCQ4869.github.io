@@ -1,16 +1,20 @@
+function giscusThemeUrl(): string {
+  const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+
+  return new URL(
+    isDark ? "/giscus-dark.css" : "/giscus-light.css",
+    window.location.origin,
+  ).href;
+}
+
 function syncGiscusTheme(): void {
   const iframe = document.querySelector<HTMLIFrameElement>(
     "iframe.giscus-frame",
   );
   if (!iframe?.contentWindow) return;
 
-  const theme =
-    document.documentElement.getAttribute("data-theme") === "dark"
-      ? "dark"
-      : "light";
-
   iframe.contentWindow.postMessage(
-    { giscus: { setConfig: { theme } } },
+    { giscus: { setConfig: { theme: giscusThemeUrl() } } },
     "https://giscus.app",
   );
 }

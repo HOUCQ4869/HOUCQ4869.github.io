@@ -136,3 +136,8 @@
     }
   }
 }
+
+aside nav a.toc-active {
+  color: var(--accent);
+  font-weight: 500;
+}

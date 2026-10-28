@@ -1,6 +1,9 @@
 ---
 import { getCollection } from "astro:content";
 import { getRelativeLocaleUrl } from "astro:i18n";
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import timezonePlugin from "dayjs/plugin/timezone";
 import "lxgw-wenkai-webfont/lxgwwenkai-regular.css";
 import IconRss from "@/assets/icons/IconRss.svg";
 import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
@@ -10,9 +13,13 @@ import Footer from "@/components/Footer.astro";
 import Socials from "@/components/Socials.astro";
 import Card from "@/components/Card.astro";
 import LinkButton from "@/components/LinkButton.astro";
+import { getPostUrl } from "@/utils/getPostPaths";
 import { getSortedPosts } from "@/utils/getSortedPosts";
 import { useTranslations } from "@/i18n";
 import config from "@/config";
+
+dayjs.extend(utc);
+dayjs.extend(timezonePlugin);
 
 const { socials, posts: postsConfig } = config;
 
@@ -22,8 +29,20 @@ const t = useTranslations(locale);
 const posts = await getCollection("posts");
 const sortedPosts = getSortedPosts(posts);
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
-const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
+const latestPost = featuredPosts[0] ?? sortedPosts[0];
+const restPosts = latestPost
+  ? sortedPosts.filter((post) => post.id !== latestPost.id)
+  : sortedPosts;
 const homePath = getRelativeLocaleUrl(locale, "");
+
+const featuredDate = latestPost
+  ? dayjs(latestPost.data.pubDatetime)
+      .tz(config.site.timezone)
+      .format("YYYY-MM-DD")
+  : "";
+const featuredUrl = latestPost
+  ? getPostUrl(latestPost.id, latestPost.filePath, locale)
+  : "";
 ---
 
 <Layout>
@@ -67,34 +86,35 @@ const homePath = getRelativeLocaleUrl(locale, "");
     </section>
 
     {
-      featuredPosts.length > 0 && (
-        <section
-          id="featured"
-          class:list={[
-            "pt-12 pb-6",
-            { "border-border border-b": recentPosts.length > 0 },
-          ]}
+      latestPost && (
+        <a
+          href={featuredUrl}
+          class="group bg-muted/70 border-border hover:border-accent/50 mt-10 mb-2 block rounded-xl border p-6 transition-colors sm:p-8"
         >
-          <h2 class="text-2xl font-semibold tracking-wide">
-            {t.home.featured}
+          <p class="text-accent font-mono text-xs font-medium tracking-[0.2em] uppercase">
+            LATEST · {featuredDate}
+          </p>
+          <h2 class="group-hover:text-accent mt-3 text-2xl font-bold tracking-tight transition-colors sm:text-3xl">
+            {latestPost.data.title}
           </h2>
-          <ul>
-            {featuredPosts.map((data) => (
-              <Card variant="h3" {...data} />
-            ))}
-          </ul>
-        </section>
+          <p class="text-muted-foreground mt-2">
+            {latestPost.data.description}
+          </p>
+          <p class="text-muted-foreground group-hover:text-accent mt-5 font-mono text-xs transition-colors">
+            阅读全文 →
+          </p>
+        </a>
       )
     }
 
     {
-      recentPosts.length > 0 && (
-        <section id="recent-posts" class="pt-12 pb-6">
+      restPosts.length > 0 && (
+        <section id="recent-posts" class="pt-10 pb-6">
           <h2 class="text-2xl font-semibold tracking-wide">
             {t.home.recentPosts}
           </h2>
           <ul>
-            {recentPosts.slice(0, postsConfig.perIndex).map((data) => (
+            {restPosts.slice(0, postsConfig.perIndex).map((data) => (
               <Card variant="h3" {...data} />
             ))}
           </ul>
