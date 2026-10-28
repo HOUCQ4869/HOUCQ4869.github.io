@@ -1,9 +1,11 @@
 ---
 import { type CollectionEntry, getCollection, render } from "astro:content";
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import timezonePlugin from "dayjs/plugin/timezone";
 import PostLayout from "@/layouts/PostLayout.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
-import Datetime from "@/components/Datetime.astro";
 import Tag from "@/components/Tag.astro";
 import { getPostSlug, getPostUrl } from "@/utils/getPostPaths";
 import { getSortedPosts } from "@/utils/getSortedPosts";
@@ -16,6 +18,9 @@ import BackToTopButton from "./_components/BackToTopButton.astro";
 import AdjacentPostNav from "./_components/AdjacentPostNav.astro";
 import Comments from "@/components/Comments.astro";
 import config from "@/config";
+
+dayjs.extend(utc);
+dayjs.extend(timezonePlugin);
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
@@ -74,7 +79,21 @@ const {
   hideEditPost,
 } = post.data;
 
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
+
+const plainCharCount = (post.body ?? "").replace(/\s/g, "").length;
+const readingMinutes = Math.max(1, Math.round(plainCharCount / 400));
+
+const eyebrowTag = tags[0] ?? "NOTE";
+const bylineDate = dayjs(pubDatetime)
+  .tz(timezone ?? config.site.timezone)
+  .format("YYYY-MM-DD");
+const updatedDate = modDatetime
+  ? dayjs(modDatetime)
+      .tz(timezone ?? config.site.timezone)
+      .format("YYYY-MM-DD")
+  : null;
+const tocHeadings = headings.filter(({ depth }) => depth === 2 || depth === 3);
 
 let ogImageUrl: string | undefined;
 
@@ -112,37 +131,80 @@ const ogImage = ogImageUrl
     class:list={["app-layout", { "mt-8": !config.features.showBackButton }]}
     data-pagefind-body
   >
+    <p
+      class="text-accent font-mono text-xs font-medium tracking-[0.2em] uppercase"
+    >
+      NOTE · {eyebrowTag}
+    </p>
+
     <h1
       style={{ viewTransitionName: toTransitionName(post.id) }}
-      class="text-accent inline-block text-2xl font-bold sm:text-3xl"
+      class="mt-2 text-3xl font-bold tracking-tight sm:text-4xl"
     >
       {title}
     </h1>
 
-    <div class="my-2 flex items-center gap-2">
-      <Datetime {pubDatetime} {modDatetime} {timezone} size="lg" />
-      <span
-        aria-hidden="true"
-        class:list={[
-          "text-muted-foreground max-sm:hidden",
-          { hidden: !config.features.editPost?.enabled || hideEditPost },
-        ]}
-      >
-        |
-      </span>
-      <EditPost {hideEditPost} {post} class="max-sm:hidden" />
-    </div>
+    <p class="text-muted-foreground mt-3 text-lg leading-relaxed">
+      {description}
+    </p>
 
-    <article
-      id="article"
+    <div
       class:list={[
-        "mt-8 w-full",
-        "app-prose max-w-app",
-        "prose-pre:bg-(--shiki-light-bg) dark:prose-pre:bg-(--shiki-dark-bg)",
+        "text-muted-foreground mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-xs",
       ]}
     >
-      <Content />
-    </article>
+      <span>{config.site.author}</span>
+      <span aria-hidden="true">·</span>
+      <span>{bylineDate}</span>
+      {
+        updatedDate && (
+          <>
+            <span aria-hidden="true">·</span>
+            <span>更新于 {updatedDate}</span>
+          </>
+        )
+      }
+      <span aria-hidden="true">·</span>
+      <span>约 {readingMinutes} 分钟阅读</span>
+      <EditPost {hideEditPost} {post} class="underline-offset-4" />
+    </div>
+
+    <div class="relative mt-8 w-full">
+      {
+        tocHeadings.length > 0 && (
+          <aside class="absolute top-0 bottom-0 left-full ml-8 hidden w-52 xl:block">
+            <nav class="sticky top-20" aria-label="文章目录">
+              <p class="text-muted-foreground font-mono text-[11px] font-medium tracking-[0.15em] uppercase">
+                ON THIS PAGE
+              </p>
+              <ul class="border-border mt-3 border-l pl-3">
+                {tocHeadings.map(({ depth, slug, text }) => (
+                  <li class:list={["py-1", depth === 3 && "ps-3"]}>
+                    <a
+                      href={`#${slug}`}
+                      class="text-muted-foreground hover:text-accent text-sm"
+                    >
+                      {text}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </aside>
+        )
+      }
+
+      <article
+        id="article"
+        class:list={[
+          "mt-8 w-full",
+          "app-prose max-w-app",
+          "prose-pre:bg-(--shiki-light-bg) dark:prose-pre:bg-(--shiki-dark-bg)",
+        ]}
+      >
+        <Content />
+      </article>
+    </div>
 
     <hr class="my-8 border-dashed" />
 

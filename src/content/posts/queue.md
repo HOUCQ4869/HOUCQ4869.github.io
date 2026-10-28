@@ -6,7 +6,6 @@ ogImage: "/images/covers/queue-4.webp"
 tags: ["数据结构", "C"]
 draft: false
 ---
-# Queue
 ## 类型定义
 队列是一种先进先出(first in first out FIFO)的线性表，只允许在表的一端插入元素，另一端删除；允许插入的一端称为队尾，允许删除的一端称为队头；  
 **抽象数据类型**

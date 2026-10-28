@@ -6,7 +6,6 @@ ogImage: "/images/covers/oslab1-11.webp"
 tags: ["OS", "linux", "OSLab"]
 draft: false
 ---
-# Lab1 实验报告
 **PB21111618 侯超群**
 ## 实验目标
 本次实验用于实现multiboot header部分,并在屏幕以及串口上输出特定内容；

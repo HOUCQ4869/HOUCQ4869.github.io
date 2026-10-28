@@ -10,27 +10,32 @@
   --font-app:
     "Google Sans Code", ui-monospace, "SFMono-Regular", "Menlo", "Monaco",
     "Consolas", "Liberation Mono", "Courier New", monospace;
+  --font-mono:
+    ui-monospace, "SFMono-Regular", "Menlo", "Monaco", "Consolas",
+    "Liberation Mono", "Courier New", monospace;
+  --font-verse:
+    "LXGW WenKai", "Kaiti SC", "STKaiti", "KaiTi", "Noto Serif SC", serif;
 }
 
-/* Light theme values */
+/* Light theme: warm paper */
 :root,
 [data-theme="light"] {
-  --background: #fdfdfd;
-  --foreground: #282728;
-  --accent: #006cac;
+  --background: #f8f4ec;
+  --foreground: #292b27;
+  --accent: #b44725;
   --accent-foreground: #ffffff;
-  --muted: #e6e6e6;
-  --muted-foreground: #6b7280;
-  --border: #ece9e9;
+  --muted: #efeae0;
+  --muted-foreground: #5c5e56;
+  --border: #e2ddd1;
 }
 
-/* Dark theme values */
+/* Dark theme: warm ink */
 [data-theme="dark"] {
-  --background: #212737;
-  --foreground: #eaedf3;
-  --accent: #ff6b01;
+  --background: #1b1a17;
+  --foreground: #e8e6e1;
+  --accent: #e07a52;
   --accent-foreground: #ffffff;
-  --muted: #343f60;
-  --muted-foreground: #afb9ca;
-  --border: #ab4b08;
+  --muted: #2a2823;
+  --muted-foreground: #a8a49c;
+  --border: #3a372f;
 }

@@ -6,7 +6,6 @@ ogImage: "/images/covers/string-5.webp"
 tags: ["数据结构", "C"]
 draft: false
 ---
-# String
 ## 类型定义
 串（字符串）是由零个或多个字符组成的有限序列；
 * **串的长度**：串中字符数目n称为**串的长度**；

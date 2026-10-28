@@ -6,7 +6,6 @@ ogImage: "/images/covers/stack-3.webp"
 tags: ["数据结构", "C"]
 draft: false
 ---
-# Stack
 ## 类型定义
 栈是限定仅在表尾进行插入和删除操作的线性表，又称为后进先出(last in first out)的线性表(LIFO结构)，表尾称为栈顶，表头称为栈底，不含元素则称为空栈；  
 **抽象数据类型**:

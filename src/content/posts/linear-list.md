@@ -6,7 +6,6 @@ ogImage: "/images/covers/linear-list-2.webp"
 tags: ["数据结构", "C"]
 draft: false
 ---
-# Linear_list 
 
 ## 类型定义
 一个线性表是n个数据元素的有限序列，线性表中的元素个数n定义为线性表的长度，n=0时成为空表；  
